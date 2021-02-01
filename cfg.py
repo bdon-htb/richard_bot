@@ -3,7 +3,7 @@ PREFIX = 'r!'
 SETTINGS = {
     # An array of strings. Each string specifies a channel that the wipe
     # command can be used on. empty array = all channels.
-    'wipe_channel': ['wipe-chat-🛫', 'test-channel']
+    'wipe_channel': ['wipe-chat-🛫', 'test-channel', 'bot-commands']
 }
 
 WORDS = {

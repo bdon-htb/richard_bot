@@ -58,7 +58,8 @@ class Misc(commands.Cog):
     async def help(self, ctx, c=''):
         """Dynamically construct a help message containing commands and
         their usage. If a valid command is specified then the bot will
-        send a help message of the specific command the method's docstring.
+        send a help message of the specific command using the method's
+        docstring.
 
         Usage: {PREFIX}help [c: str]
         [c] is the name of any bot command.
@@ -79,7 +80,8 @@ class Misc(commands.Cog):
             message = '```===List of Commands===\n'
             for name in com_names:
                 message += cfg.PREFIX + name + '\n'
-            message += '```'
+
+            message += f'\nIf you need help with using a particular command\nadd the name of it to {cfg.PREFIX}help.\ni.e. {cfg.PREFIX}help wipe```'
             await ctx.send(message)
 
     @commands.command()
@@ -107,7 +109,7 @@ class Misc(commands.Cog):
 
         if amount > 0 and (valid_channels == [] or channel in valid_channels):
             message = random.choice(cfg.WORDS['success']) + ' ' + ctx.author.name
-            message += f'. Just purged {amount} messages'
+            message += f'. Purged {amount} messages'
             await self._wipe_helper(ctx, amount, args)
         else:
             message = random.choice(cfg.WORDS['failed']) + ' ' + ctx.author.name
