@@ -18,6 +18,7 @@ except ImportError:
     raise ImportError('Error while trying to get the token. Did you make sure to include bot_token.py?')
 
 client = commands.Bot(command_prefix = cfg.PREFIX)
+client.remove_command('help') # So we can override this later.
 
 @client.command()
 async def load(ctx, extension):
