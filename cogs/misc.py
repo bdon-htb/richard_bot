@@ -12,6 +12,27 @@ class Misc(commands.Cog):
     def __init__(self, client):
         self.client = client
 
+    async def _clear(self, ctx, n, is_valid):
+        """Removes n number of messages. Counter only goes up when message
+        passes the is_valid function.
+
+        Precondition: n > 0
+        """
+        async for message in ctx.channel.history():
+            if n <= 0:
+                break
+            elif is_valid(message):
+                print(message)
+                await message.delete()
+                n -= 1
+
+    async def _bulk_clear(self, ctx, n, is_valid):
+        """Does a bulk clear of messages using purge.
+        Favours speed over accuracy.
+        """
+        await ctx.channel.purge(limit=n, check=is_valid, bulk=True)
+
+
     async def _wipe_helper(self, ctx, amount, args=[]):
         """Handles the removal of messages for r!wipe.
         """
@@ -21,7 +42,11 @@ class Misc(commands.Cog):
             message_check = lambda m: m.author.bot
         else: # Remove specified amount of user messagess NOT including the wipe message.
             message_check = lambda m: m != ctx.message and m.author == ctx.author
-        await ctx.channel.purge(limit=amount, check=message_check, bulk=True)
+
+        if amount > 25:
+            await self._bulk_clear(ctx, amount, message_check)
+        else:
+            await self._clear(ctx, amount, message_check)
 
     # Events
     @commands.Cog.listener()
@@ -62,11 +87,16 @@ class Misc(commands.Cog):
         """Delete message(s) from the server.
 
         Usage: {PREFIX}wipe [amount: int] [args]
-        [amount] the number of messages to remove (command itself not included)
+        [amount] is the number of messages to remove.
+        The command message is not included by default.
+
+        Note: If [amount] .
+        If [amount] is greater than 25 the bot will fallback to a bulk
+        delete implementations which won't be as accurate.
 
         Accepted arguments:
-        -a the command message is also removed.
-        -b removes only messages by bots.
+        -a include the command message in deletion.
+        -b remove only messages by bots.
         -s stops the bot from sending the success message.
         """
         channel = ctx.channel.name
