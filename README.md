@@ -13,14 +13,14 @@ pip install discord.py
 - You will need access to your bot's token. More information on that [here](https://discord.com/developers/docs/intro).
 
 ## Implementation details
-- By default bot_token.py is hidden according to the project's .gitignore.
-  for security reasons. Before running main.py make sure to copy bot_token.py
-  from /default_token/, replace the empty string in it with your token and
-  move it to the same directory as main.py
+- By default **bot_token.py** is hidden according to the project's **.gitignore**.
+  for security reasons. Before running **main.py** make sure to copy **bot_token.py**
+  from **/default_token/**, replace the empty string in it with your token and
+  move it to the same directory as **main.py**.
 
 ## Notes
 - Since this bot was designed for personal use, random features may be added
   or removed as needed without discretion.
 
 ## License
-richard_bot uses the MIT License which you can read [here](LICENSE.md).
+- richard_bot uses the MIT License which you can read [here](./LICENSE.md).
