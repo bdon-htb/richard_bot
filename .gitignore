@@ -1,3 +1,4 @@
 # Contains the token of the bot.
 bot_token.py
+secrets.py
 __pycache__/
