@@ -23,4 +23,4 @@ pip install discord.py
   or removed as needed without discretion.
 
 ## License
-- richard_bot uses the MIT License which you can read [here](./LICENSE.md).
+- richard_bot uses the MIT License which you can read [here](LICENSE).
