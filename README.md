@@ -13,10 +13,15 @@ pip install discord.py
 - You will need access to your bot's token. More information on that [here](https://discord.com/developers/docs/intro).
 
 ## Implementation details
-- By default **bot_token.py** is hidden according to the project's **.gitignore**.
-  for security reasons. Before running **main.py** make sure to copy **bot_token.py**
-  from **/default_token/**, replace the empty string in it with your token and
-  move it to the same directory as **main.py**.
+- **main.py** searches for the bot token in a module called **secrets.py**
+  this file should contain a variable called TOKEN in the format:
+```
+TOKEN = 'Your token goes here'
+```
+  This file is hidden according to the project's **.gitignore**. for security
+  reasons. Before running **main.py** make sure to copy **bot_token.py**
+  from **/default_token/**, replace the empty string in it with your token,
+  rename it to **secrets.py** and move it to the same directory as **main.py**.
 
 ## Notes
 - Since this bot was designed for personal use, random features may be added
