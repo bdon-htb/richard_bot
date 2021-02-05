@@ -10,10 +10,8 @@ logging.basicConfig(level=logging.INFO)
 # Custom modules
 import cfg
 
-# TODO: One the bot is complete. remove bot_token.py from .gitignore and
-# instead just have TOKEN be an empty string for the end user to change.
 try:
-    from bot_token import TOKEN
+    from secrets import TOKEN
 except ImportError:
     raise ImportError('Error while trying to get the token. Did you make sure to include bot_token.py?')
 
