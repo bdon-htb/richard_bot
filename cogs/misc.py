@@ -22,7 +22,6 @@ class Misc(commands.Cog):
             if n <= 0:
                 break
             elif is_valid(message):
-                print(message)
                 await message.delete()
                 n -= 1
 
@@ -64,7 +63,6 @@ class Misc(commands.Cog):
         Usage: {PREFIX}help [c: str]
         [c] is the name of any bot command.
         """
-        # Checker function checks that it's not a private method or a listener
         commands = self.get_commands()
         com_names = [com.name for com in commands]
 
@@ -92,13 +90,13 @@ class Misc(commands.Cog):
         [amount] is the number of messages to remove.
         The command message is not included by default.
 
-        Note: If [amount] .
+        Note:
         If [amount] is greater than 25 the bot will fallback to a bulk
         delete implementations which won't be as accurate.
 
         Accepted arguments:
         -a include the command message in deletion.
-        -b remove only messages by bots.
+        -b wipe only the last [amount] messages by bots.
         -s stops the bot from sending the success message.
         """
         channel = ctx.channel.name
