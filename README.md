@@ -15,9 +15,9 @@ pip install discord.py
 ## Implementation details
 - **main.py** searches for the bot token in a module called **secrets.py**
   this file should contain a variable called TOKEN in the format:
-```
-TOKEN = 'Your token goes here'
-```
+  ```
+  TOKEN = 'Your token goes here'
+  ```
   This file is hidden according to the project's **.gitignore**. for security
   reasons. Before running **main.py** make sure to copy **bot_token.py**
   from **/default_token/**, replace the empty string in it with your token,
