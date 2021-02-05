@@ -18,7 +18,7 @@ pip install discord.py
   ```
   TOKEN = 'Your token goes here'
   ```
-  This file is hidden according to the project's **.gitignore**. for security
+  This file is hidden according to the project's **.gitignore** for security
   reasons. Before running **main.py** make sure to copy **bot_token.py**
   from **/default_token/**, replace the empty string in it with your token,
   rename it to **secrets.py** and move it to the same directory as **main.py**.
